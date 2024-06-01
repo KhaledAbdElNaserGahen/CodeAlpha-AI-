@@ -1,0 +1,22 @@
+# Install the Kaggle package
+!pip install kaggle
+
+# Upload your Kaggle API token (kaggle.json)
+from google.colab import files
+files.upload()
+
+# Make directory named kaggle and copy kaggle.json file there.
+!mkdir -p ~/.kaggle
+!cp kaggle.json ~/.kaggle/
+
+# Change the permissions of the file.
+!chmod 600 ~/.kaggle/kaggle.json
+
+# Test that everything is working.
+!kaggle datasets list
+
+# Now download the COVID-19 Related FAQs dataset
+!kaggle datasets download -d deepann/covid19-related-faqs
+
+# Unzip the dataset
+!unzip covid19-related-faqs.zip
